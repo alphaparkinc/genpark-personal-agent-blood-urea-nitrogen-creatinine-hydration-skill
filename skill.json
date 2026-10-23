@@ -1,0 +1,61 @@
+{
+  "name": "genpark-personal-agent-blood-urea-nitrogen-creatinine-hydration-skill",
+  "version": "1.0.0",
+  "title": "Blood Urea Nitrogen (BUN) & Creatinine Hydration Status Sentinel Skill",
+  "description": "BUN-to-creatinine ratio calculation, intravascular volume contraction detection, renal filtration efficiency, and clinical hydration triage. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "personal-agent",
+  "topics": [
+    "bun-creatinine",
+    "renal-function",
+    "hydration-status",
+    "biomarker",
+    "personal-agent",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "calculate_bun_creatinine_ratio",
+      "description": "Calculate BUN/Creatinine ratio and assess prerenal azotemia vs intrinsic renal strain.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bun_mg_dl": {
+            "type": "number"
+          },
+          "creatinine_mg_dl": {
+            "type": "number"
+          },
+          "egfr_ml_min": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "bun_mg_dl",
+          "creatinine_mg_dl"
+        ]
+      }
+    },
+    {
+      "name": "prescribe_rehydration_fluid_remedy",
+      "description": "Synthesize fluid replenishment target and oral electrolyte osmolyte balancing protocol.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ratio": {
+            "type": "number"
+          },
+          "body_weight_kg": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "ratio",
+          "body_weight_kg"
+        ]
+      }
+    }
+  ]
+}
